@@ -5,7 +5,7 @@ import os
 
 
 def start_venv():
-    os.system('source ~/PycharmProjects/banking_venv/bin/activate')
+    os.system('. ~/PycharmProjects/banking_venv/bin/activate')
 
 
 def git_pull():
