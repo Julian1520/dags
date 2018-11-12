@@ -13,7 +13,7 @@ def git_pull():
 
 
 def get_banks_data():
-    os.system('python3 main_banking_app.py --source_type banks --mode_database append ' +\
+    os.system('python3 ~/PycharmProjects/banking_app/main_banking_app.py --source_type banks --mode_database append ' +\
               '--start_date ' + str(datetime.date(datetime.now())) + 'T00:00:00 ' +\
               '--end_date ' + str(datetime.date(datetime.now())) + 'T23:59:59')
 
