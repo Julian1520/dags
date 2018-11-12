@@ -23,11 +23,11 @@ dag = DAG('finance_data', description='Get data from finance source and write to
           start_date=datetime(2017, 3, 20), catchup=False)
 
 
-start_venv_operator = PythonOperator(task_id='start venv', python_callable=start_venv(), dag=dag)
+start_venv_operator = PythonOperator(task_id='start_venv', python_callable=start_venv(), dag=dag)
 
-git_pull_operator = PythonOperator(task_id='pull from git', python_callable=git_pull(), dag=dag)
+git_pull_operator = PythonOperator(task_id='pull_from_git', python_callable=git_pull(), dag=dag)
 
-get_banks_data_operator = PythonOperator(task_id='get data from banks', python_callable=get_banks_data(), dag=dag)
+get_banks_data_operator = PythonOperator(task_id='get_data_from banks', python_callable=get_banks_data(), dag=dag)
 
 start_venv_operator >> git_pull_operator
 git_pull_operator >> get_banks_data_operator
