@@ -13,19 +13,19 @@ dag = DAG('finance_data', description='Get data from finance source and write to
 git_pull_operator = BashOperator(task_id='pull_from_git',
                                  bash_command='cd ~/PycharmProjects/banking_app; git pull', dag=dag)
 
-get_banks_data_operator = BashOperator(task_id='get_data_from_bank',
+get_banks_data_operator = BashOperator(task_id='get_data_from_bank_giro',
                                        bash_command='~/PycharmProjects/banking_venv/bin/python ~/PycharmProjects/banking_app/main_banking_app.py\
                                        --source_type giro_banks --mode_database replace ' +\
                                        '--start_date ' + str(datetime.date(datetime.now())) + 'T00:00:00 ' +\
                                        '--end_date ' + str(datetime.date(datetime.now())) + 'T23:59:59', dag=dag)
 
-get_dkb_cc_data_operator = BashOperator(task_id='get_data_from_bank',
+get_dkb_cc_data_operator = BashOperator(task_id='get_data_from_bank_cc',
                                        bash_command='~/PycharmProjects/banking_venv/bin/python ~/PycharmProjects/banking_app/main_banking_app.py\
                                        --source_type dkb_cc --mode_database replace ' +\
                                        '--start_date ' + str(datetime.date(datetime.now())) + 'T00:00:00 ' +\
                                        '--end_date ' + str(datetime.date(datetime.now())) + 'T23:59:59', dag=dag)
 
-get_dkb_depot_data_operator = BashOperator(task_id='get_data_from_bank',
+get_dkb_depot_data_operator = BashOperator(task_id='get_data_from_bank_depot',
                                        bash_command='~/PycharmProjects/banking_venv/bin/python ~/PycharmProjects/banking_app/main_banking_app.py\
                                        --source_type dkb_depot --mode_database replace ' +\
                                        '--start_date ' + str(datetime.date(datetime.now())) + 'T00:00:00 ' +\
